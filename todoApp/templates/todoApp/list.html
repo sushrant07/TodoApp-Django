@@ -1,0 +1,50 @@
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<style>
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="container text-center">
+  <h1 class="text-success mt-2 mb-2">Todo App with <span class="text-info">Django</span></h1>
+  <form method="POST" action="/">
+    {% csrf_token %} {{form.title}}
+    <input class="btn btn-info" type="submit" value="Create Task" />
+  </form>
+
+  <table class="table text-center table-dark">
+      <thead>
+          <tr>
+              <th>Task</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+    {% for task in tasks %}
+    <tr>
+      
+        <td>{% if task.complete %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <span>{{task}}</span>
+            {% endif %}</td>
+   
+      <td>  <a class="btn btn-sm btn-info" href="{% url 'updateTask' task.id %}"
+        >Update</a
+      >
+      <a class="btn btn-sm btn-danger" href="{% url 'deleteTask' task.id %}"
+        >Delete</a
+      ></td>
+      
+    </tr>
+    {% endfor %}
+  </div>
+</div>
+

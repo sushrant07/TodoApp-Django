@@ -1,0 +1,24 @@
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<style>
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+</style>
+<div class="container text-center mt-5">
+  <h1 class="text-primary">Update Task</h1>
+
+  <form action="" method="POST">
+    {% csrf_token %} {{form}}
+
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+  <a href="/" class="btn btn-danger">Go Back</a>
+</div>
